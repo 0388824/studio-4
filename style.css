@@ -1,0 +1,163 @@
+/* 引入 Google Fonts（Roboto） */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* 全局重置与基础样式 */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  background: #000;
+}
+
+/* 背景区域（静止背景） */
+#scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+/* 背景图片：放大至 150%，采用 cover 效果，居中显示 */
+#bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 靶子 Canvas：固定定位，初始居中，后续由 JS 更新位置 */
+#gameCanvas {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: crosshair;
+  background: transparent;
+  z-index: 2;
+}
+
+/* Logo：固定在左上角 */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+}
+.logo img {
+  width: 100px;
+  height: auto;
+}
+
+/* 右上角邀请文字 */
+.overlay {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 6;
+  text-align: right;
+  color: #fff;
+}
+.overlay h1 {
+  font-size: 2.2em;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+}
+.overlay p {
+  font-size: 1.2em;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* 历史 Slide 层：全屏覆盖，半透明黑色背景 */
+.slide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.slide.show {
+  opacity: 1;
+}
+.hidden {
+  display: none;
+}
+
+/* Slide 内部内容 */
+.slide-content {
+  max-width: 600px;
+  padding: 20px;
+  color: #fff;
+}
+.slide-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.slide-content h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.slide-content p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Reserve Now 按钮 */
+.reserve {
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #ff6f61;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.reserve:hover {
+  background: #e65b50;
+}
+
+/* “Aim better!” 提示信息 */
+.aim {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  color: #fff;
+  font-size: 2em;
+  background: rgba(0,0,0,0.7);
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.aim.show {
+  opacity: 1;
+}
+
+
