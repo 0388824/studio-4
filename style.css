@@ -22,7 +22,7 @@ html, body {
   background: #000;
 }
 
-/* 背景图片：放大至 150%，采用 cover 效果，居中显示 */
+/* 背景图片：采用 cover 效果，居中显示 */
 #bgImage {
   position: absolute;
   top: 0;
@@ -33,7 +33,7 @@ html, body {
   object-position: center;
 }
 
-/* 靶子 Canvas：固定定位，初始居中，后续由 JS 更新位置 */
+/* 靶子 Canvas：固定定位，初始居中 */
 #gameCanvas {
   position: fixed;
   left: 50%;
@@ -160,4 +160,57 @@ html, body {
   opacity: 1;
 }
 
-
+/* ======= 针对手机优化 ======= */
+@media (max-width: 600px) {
+  /* 缩小 Logo */
+  .logo {
+    top: 10px;
+    left: 10px;
+  }
+  .logo img {
+    width: 80px;
+  }
+  
+  /* 缩小右上角邀请文字 */
+  .overlay {
+    top: 10px;
+    right: 10px;
+  }
+  .overlay h1 {
+    font-size: 1.8em;
+  }
+  .overlay p {
+    font-size: 1em;
+  }
+  
+  /* 缩小 Canvas 尺寸 */
+  #gameCanvas {
+    width: 250px !important;
+    height: 250px !important;
+    border-width: 1px;
+  }
+  
+  /* Slide 内部内容调整 */
+  .slide-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .slide-content h2 {
+    font-size: 1.5em;
+  }
+  .slide-content p {
+    font-size: 1em;
+  }
+  
+  /* Reserve Now 按钮调整 */
+  .reserve {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+  
+  /* 调整 Aim better 提示 */
+  .aim {
+    font-size: 1.5em;
+    padding: 15px 20px;
+  }
+}
