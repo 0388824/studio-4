@@ -160,7 +160,7 @@ html, body {
   opacity: 1;
 }
 
-/* ======= 针对手机优化 ======= */
+/* ======= 针对手机竖屏优化 ======= */
 @media (max-width: 600px) {
   /* 缩小 Logo */
   .logo {
@@ -208,9 +208,65 @@ html, body {
     font-size: 0.9em;
   }
   
-  /* 调整 Aim better 提示 */
+  /* Aim better 提示调整 */
   .aim {
     font-size: 1.5em;
     padding: 15px 20px;
+  }
+}
+
+/* ======= 针对手机横屏优化 ======= */
+@media (max-width: 600px) and (orientation: landscape) {
+  /* 缩小 Canvas 进一步调整：横屏时高度有限 */
+  #gameCanvas {
+    width: 200px !important;
+    height: 200px !important;
+    border-width: 1px;
+  }
+  
+  /* 将邀请文字从右上角移至底部居中显示，避免顶部空间紧张 */
+  .overlay {
+    top: auto;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .overlay h1 {
+    font-size: 1.6em;
+  }
+  .overlay p {
+    font-size: 0.9em;
+  }
+  
+  /* 调整 Logo 位置与尺寸 */
+  .logo {
+    top: 5px;
+    left: 5px;
+  }
+  .logo img {
+    width: 70px;
+  }
+  
+  /* Slide 内部内容进一步压缩 */
+  .slide-content {
+    max-width: 90%;
+    padding: 10px;
+  }
+  .slide-content h2 {
+    font-size: 1.3em;
+  }
+  .slide-content p {
+    font-size: 0.9em;
+  }
+  
+  /* Reserve Now 按钮与 Aim 提示相应调整 */
+  .reserve {
+    padding: 8px 14px;
+    font-size: 0.85em;
+  }
+  .aim {
+    font-size: 1.3em;
+    padding: 10px 15px;
   }
 }
